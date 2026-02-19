@@ -331,6 +331,37 @@
             width: 100%; justify-content: center; text-decoration: none; margin-top: 1.5rem;
         }
         .pricing-cta:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(224, 121, 36, 0.3); }
+        .pricing-cta-group { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+        .pricing-cta-secondary {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: transparent; color: var(--accent);
+            padding: 1rem 2rem; font-size: 0.95rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: 2px solid var(--accent); cursor: pointer; transition: all 0.3s ease;
+            width: 100%; justify-content: center; text-decoration: none;
+        }
+        .pricing-cta-secondary:hover { background: rgba(224, 121, 36, 0.08); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(224, 121, 36, 0.15); }
+        .pricing-cta-secondary svg { width: 18px; height: 18px; transition: transform 0.3s ease; }
+        .pricing-cta-secondary:hover svg { transform: translateX(4px); }
+        .pricing-cta-divider {
+            display: flex; align-items: center; gap: 1rem;
+            font-size: 0.8rem; color: var(--gray-600);
+            text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .pricing-cta-divider::before, .pricing-cta-divider::after {
+            content: ''; flex: 1; height: 1px;
+            background: rgba(255,255,255,0.08);
+        }
+        /* Final CTA dual buttons */
+        .final-cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .final-cta-secondary {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: transparent; color: var(--accent);
+            padding: 1.25rem 2.5rem; font-size: 1.1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: 2px solid var(--accent); cursor: pointer; transition: all 0.3s ease; text-decoration: none;
+        }
+        .final-cta-secondary:hover { background: rgba(224, 121, 36, 0.1); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(224, 121, 36, 0.2); }
         .pricing-guarantee {
             margin-top: 2rem; padding: 1.5rem;
             background: rgba(34, 197, 94, 0.06); border: 1px solid rgba(34, 197, 94, 0.2);
@@ -386,6 +417,126 @@
         .footer-logo .logo-main { font-size: 1.25rem; }
         .footer-logo .logo-sub { font-size: 0.7rem; }
         .footer-text { font-size: 0.85rem; color: var(--gray-600); }
+
+        /* ═══════════════════════════════════════════
+           WAITLIST MODAL
+        ═══════════════════════════════════════════ */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            padding: 2rem;
+            opacity: 0; visibility: hidden;
+            transition: all 0.35s ease;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-overlay.active .modal-card {
+            transform: translateY(0) scale(1); opacity: 1;
+        }
+
+        .modal-card {
+            background: var(--bg-dark);
+            border: 2px solid rgba(224, 121, 36, 0.3);
+            max-width: 480px; width: 100%;
+            padding: 2.5rem;
+            position: relative;
+            transform: translateY(30px) scale(0.95); opacity: 0;
+            transition: all 0.4s ease 0.1s;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-close {
+            position: absolute; top: 1rem; right: 1rem;
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray-400); font-size: 1.25rem;
+            cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            transition: all 0.3s ease; border-radius: 50%;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+
+        .modal-header { text-align: center; margin-bottom: 1.75rem; }
+        .modal-header h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.75rem; letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .modal-header p {
+            font-size: 0.9rem; color: var(--gray-400); line-height: 1.5;
+        }
+
+        .modal-form .form-group { margin-bottom: 1.15rem; }
+        .modal-form .form-group label {
+            display: block; font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--gray-400); margin-bottom: 0.4rem;
+        }
+        .modal-form .form-group input {
+            width: 100%; padding: 0.85rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: var(--white); font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem; transition: all 0.3s ease;
+            outline: none;
+        }
+        .modal-form .form-group input::placeholder { color: var(--gray-600); }
+        .modal-form .form-group input:focus {
+            border-color: var(--accent);
+            background: rgba(224, 121, 36, 0.05);
+            box-shadow: 0 0 0 3px rgba(224, 121, 36, 0.1);
+        }
+        .modal-form .form-group.error input { border-color: #dc2626; }
+        .modal-form .form-error {
+            font-size: 0.75rem; color: #dc2626;
+            margin-top: 0.3rem; display: none;
+        }
+        .modal-form .form-group.error .form-error { display: block; }
+
+        .modal-submit {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.75rem; width: 100%;
+            background: var(--accent); color: var(--white);
+            padding: 1.1rem 2rem; font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: none; cursor: pointer; transition: all 0.3s ease;
+            font-family: 'DM Sans', sans-serif;
+            margin-top: 0.5rem;
+        }
+        .modal-submit:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(224, 121, 36, 0.3);
+        }
+        .modal-submit:disabled {
+            opacity: 0.6; cursor: not-allowed;
+            transform: none; box-shadow: none;
+        }
+        .modal-submit svg { width: 18px; height: 18px; }
+
+        .modal-trust {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.5rem; margin-top: 1rem;
+            font-size: 0.75rem; color: var(--gray-600);
+        }
+        .modal-trust svg { width: 14px; height: 14px; }
+
+        /* Spinner for loading state */
+        .spinner {
+            width: 18px; height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: var(--white);
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @media (max-width: 968px) {
+            .modal-card { padding: 2rem 1.5rem; margin: 1rem; }
+        }
 
         /* Animations */
         .animate-in { opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s ease forwards; }
@@ -788,7 +939,14 @@
                     <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>$1,000 Launch Competition Entry</li>
                     <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Private Community Access (Lifetime)</li>
                 </ul>
-                <a href="#" class="pricing-cta">Join The Waitlist</a>
+                <div class="pricing-cta-group">
+                    <a href="#" class="pricing-cta">Join The Waitlist</a>
+                    <div class="pricing-cta-divider">or</div>
+                    <a href="the-first-20k-cohort-register.html" class="pricing-cta-secondary">
+                        Ready to Enroll? Register Now
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </a>
+                </div>
 
                 <div class="pricing-guarantee">
                     <h4>&#128170; The &ldquo;Pre-Sell or It&rsquo;s Free&rdquo; Guarantee</h4>
@@ -845,12 +1003,61 @@
         <div class="final-cta-container">
             <h2>STOP TRADING <span class="accent">TIME</span> FOR MONEY.<br>START BUILDING <span class="accent">LEVERAGE.</span></h2>
             <p>21 days. One cohort designed. Founding members pre-sold. A business model that finally scales. The only question is whether you&rsquo;re going to keep Googling or actually build it.</p>
-            <a href="#pricing">
-                Join The Waitlist
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 20px; height: 20px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </a>
+            <div class="final-cta-buttons">
+                <a href="#pricing">
+                    Join The Waitlist
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 20px; height: 20px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+                <a href="the-first-20k-cohort-register.html" class="final-cta-secondary">
+                    Register Now
+                </a>
+            </div>
         </div>
     </section>
+
+    <!-- ═══════════════════════════════════════════
+         WAITLIST MODAL
+    ═══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="waitlistModal">
+        <div class="modal-card">
+            <button class="modal-close" id="modalClose">&times;</button>
+
+            <div class="modal-header">
+                <h2>JOIN THE <span class="accent">WAITLIST</span></h2>
+                <p>Be the first to know when enrollment opens. Early-bird spots go fast&mdash;waitlist members get first access.</p>
+            </div>
+
+            <form class="modal-form" id="waitlistForm" novalidate>
+                <div class="form-group">
+                    <label for="wlName">Full Name *</label>
+                    <input type="text" id="wlName" name="name" placeholder="e.g. Sarah Mitchell" required autocomplete="name">
+                    <div class="form-error">Please enter your full name.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="wlEmail">Email Address *</label>
+                    <input type="email" id="wlEmail" name="email" placeholder="e.g. sarah@coachingbiz.com" required autocomplete="email">
+                    <div class="form-error">Please enter a valid email address.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="wlPhone">Phone Number *</label>
+                    <input type="tel" id="wlPhone" name="phone" placeholder="e.g. (555) 123-4567" required autocomplete="tel">
+                    <div class="form-error">Please enter your phone number.</div>
+                </div>
+
+                <button type="submit" class="modal-submit" id="wlSubmit">
+                    Reserve My Spot
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </button>
+
+                <div class="modal-trust">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                    No spam. No sharing. Unsubscribe anytime.
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -862,14 +1069,168 @@
     </footer>
 
     <script>
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const answer = btn.nextElementSibling;
-                const isOpen = btn.classList.contains('active');
-                document.querySelectorAll('.faq-question').forEach(b => { b.classList.remove('active'); b.nextElementSibling.style.maxHeight = null; });
-                if (!isOpen) { btn.classList.add('active'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+    /* ═══════════════════════════════════════════════════════
+       CONFIGURATION — FORM SUBMISSION ENDPOINT
+       ═══════════════════════════════════════════════════════
+       Option A: Google Sheets via Google Apps Script (FREE)
+       -------------------------------------------------------
+       1. Open Google Sheets → Extensions → Apps Script
+       2. Paste this code:
+
+          function doPost(e) {
+            var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+            var data = JSON.parse(e.postData.contents);
+            sheet.appendRow([
+              new Date(),
+              data.name,
+              data.email,
+              data.phone,
+              'Waitlist',
+              'Pending'
+            ]);
+            return ContentService
+              .createTextOutput(JSON.stringify({result: 'success'}))
+              .setMimeType(ContentService.MimeType.JSON);
+          }
+
+       3. Deploy → New Deployment → Web App → Anyone can access
+       4. Copy the URL and paste below
+
+       Option B: Formspree (FREE — 50 submissions/month)
+       -------------------------------------------------------
+       1. Go to formspree.io → Create form
+       2. Copy your form ID (e.g., "xyzabc12")
+       3. Set FORM_ENDPOINT to "https://formspree.io/f/xyzabc12"
+
+       Option C: Zapier Webhooks
+       -------------------------------------------------------
+       1. Create a Zap → Trigger: Webhooks by Zapier → Catch Hook
+       2. Copy the webhook URL and paste below
+       ═══════════════════════════════════════════════════════ */
+
+    const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwFxaPYChD3fEJ5_Z7XDobcbE56mKEyjETGhcSP1I9PyjJrf6n790Qzg15EMkK6P44o/exec';
+    const THANK_YOU_PAGE = 'the-first-20k-cohort-thankyou.html';
+
+    // ─── MODAL CONTROLS ───
+    const modal = document.getElementById('waitlistModal');
+    const modalClose = document.getElementById('modalClose');
+
+    function openModal(e) {
+        if (e) e.preventDefault();
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => document.getElementById('wlName').focus(), 400);
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // All "Join Waitlist" buttons open the modal
+    document.querySelectorAll('a[href="#pricing"], .nav-cta, .pricing-cta').forEach(btn => {
+        // Only intercept waitlist buttons, not "Register Now" buttons
+        if (btn.textContent.toLowerCase().includes('waitlist') ||
+            btn.classList.contains('nav-cta') ||
+            btn.classList.contains('pricing-cta')) {
+            btn.addEventListener('click', openModal);
+        }
+    });
+
+    // Also catch the hero CTA
+    document.querySelector('.hero-cta').addEventListener('click', openModal);
+
+    // Close modal
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // ─── PHONE FORMATTING ───
+    document.getElementById('wlPhone').addEventListener('input', function(e) {
+        let val = e.target.value.replace(/\D/g, '');
+        if (val.length >= 10) {
+            val = '(' + val.substring(0,3) + ') ' + val.substring(3,6) + '-' + val.substring(6,10);
+        } else if (val.length >= 6) {
+            val = '(' + val.substring(0,3) + ') ' + val.substring(3,6) + '-' + val.substring(6);
+        } else if (val.length >= 3) {
+            val = '(' + val.substring(0,3) + ') ' + val.substring(3);
+        }
+        e.target.value = val;
+    });
+
+    // ─── FORM VALIDATION & SUBMISSION ───
+    document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const name = document.getElementById('wlName');
+        const email = document.getElementById('wlEmail');
+        const phone = document.getElementById('wlPhone');
+        const submitBtn = document.getElementById('wlSubmit');
+
+        // Clear errors
+        document.querySelectorAll('.modal-form .form-group').forEach(g => g.classList.remove('error'));
+
+        let valid = true;
+
+        if (!name.value.trim()) {
+            name.closest('.form-group').classList.add('error'); valid = false;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+            email.closest('.form-group').classList.add('error'); valid = false;
+        }
+        if (!phone.value.trim() || phone.value.replace(/\D/g, '').length < 7) {
+            phone.closest('.form-group').classList.add('error'); valid = false;
+        }
+
+        if (!valid) return;
+
+        // Loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<div class="spinner"></div> Reserving Your Spot...';
+
+        const formData = {
+            name: name.value.trim(),
+            email: email.value.trim(),
+            phone: phone.value.trim(),
+            source: 'waitlist',
+            timestamp: new Date().toISOString()
+        };
+
+        try {
+            // Send to endpoint
+            if (FORM_ENDPOINT && FORM_ENDPOINT !== 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+                await fetch(FORM_ENDPOINT, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+            }
+
+            // Redirect to thank-you page
+            window.location.href = THANK_YOU_PAGE;
+
+        } catch (err) {
+            // Even if endpoint fails, redirect so user isn't stuck
+            console.error('Form submission error:', err);
+            window.location.href = THANK_YOU_PAGE;
+        }
+    });
+
+    // ─── FAQ ACCORDION ───
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const answer = btn.nextElementSibling;
+            const isOpen = btn.classList.contains('active');
+            document.querySelectorAll('.faq-question').forEach(b => {
+                b.classList.remove('active');
+                b.nextElementSibling.style.maxHeight = null;
             });
+            if (!isOpen) {
+                btn.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
         });
+    });
     </script>
 </body>
 </html>
