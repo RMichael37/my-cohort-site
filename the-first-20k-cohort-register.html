@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | The First $20K Cohort — Ronnie Michael & Company</title>
+    <meta name="description" content="Secure your spot in The First $20K Cohort. 21 days to design, pre-sell, and launch your premium group coaching program.">
+    <meta property="og:title" content="Register | The First $20K Cohort">
+    <meta property="og:description" content="Limited to 20 coaches. Build, fill, and deliver a premium group program that generates $20K.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-darker: #0a0a0a;
+            --accent: #e07924;
+            --accent-hover: #f08a35;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e0e0e0;
+            --gray-400: #9e9e9e;
+            --gray-600: #757575;
+            --gray-800: #424242;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+        .accent { color: var(--accent); }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            padding: 0.75rem 4%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-main { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--white); letter-spacing: 0.15em; }
+        .logo-sub { font-size: 0.75rem; color: var(--accent); font-weight: 500; letter-spacing: 0.05em; }
+
+        .nav-spots {
+            font-size: 0.85rem; color: var(--accent);
+            font-weight: 600; letter-spacing: 0.05em;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .nav-spots .pulse {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #22c55e;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        }
+
+        /* Main Layout */
+        .register-page {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 7rem 4% 4rem;
+            position: relative; overflow: hidden;
+        }
+        .register-page::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(224, 121, 36, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(224, 121, 36, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .register-container {
+            max-width: 1200px; width: 100%; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+            align-items: start; position: relative; z-index: 2;
+        }
+
+        /* Left Column — Summary */
+        .register-summary { padding-top: 1rem; }
+        .register-label {
+            display: inline-block; background: rgba(224, 121, 36, 0.15);
+            color: var(--accent); padding: 0.4rem 0.85rem;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; margin-bottom: 1.25rem;
+            border: 1px solid rgba(224, 121, 36, 0.3);
+        }
+        .register-summary h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+            line-height: 1.05; margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+        .register-summary .subtitle {
+            font-size: 1.15rem; color: var(--gray-200);
+            margin-bottom: 2.5rem; line-height: 1.6;
+        }
+        .register-summary .subtitle strong { color: var(--white); }
+
+        /* What You're Getting */
+        .getting-list { list-style: none; margin-bottom: 2.5rem; }
+        .getting-list li {
+            display: flex; align-items: flex-start; gap: 0.85rem;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.95rem; color: var(--gray-200);
+        }
+        .getting-list li:last-child { border-bottom: none; }
+        .getting-list li svg {
+            width: 20px; height: 20px; flex-shrink: 0;
+            color: #22c55e; margin-top: 2px;
+        }
+        .getting-list li strong { color: var(--white); }
+
+        /* Pricing Quick View */
+        .pricing-strip {
+            display: flex; align-items: center; gap: 1.25rem;
+            padding: 1.5rem; margin-bottom: 2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .pricing-strip .original {
+            font-size: 1.5rem; color: var(--gray-600);
+            text-decoration: line-through;
+        }
+        .pricing-strip .current {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem; color: var(--accent); line-height: 1;
+        }
+        .pricing-strip .savings {
+            font-size: 0.85rem; color: #22c55e;
+            font-weight: 600; line-height: 1.3;
+        }
+
+        /* Guarantee */
+        .guarantee-strip {
+            display: flex; align-items: flex-start; gap: 0.85rem;
+            padding: 1.25rem; margin-bottom: 1.5rem;
+            background: rgba(34, 197, 94, 0.06);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+        }
+        .guarantee-strip svg {
+            width: 24px; height: 24px; flex-shrink: 0;
+            color: #22c55e; margin-top: 2px;
+        }
+        .guarantee-strip p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.5; }
+        .guarantee-strip strong { color: var(--gray-200); }
+
+        /* Trust Signals */
+        .trust-row {
+            display: flex; gap: 2rem; margin-top: 1.5rem;
+        }
+        .trust-item { display: flex; align-items: center; gap: 0.5rem; }
+        .trust-item svg { width: 16px; height: 16px; color: var(--gray-400); }
+        .trust-item span { font-size: 0.8rem; color: var(--gray-400); }
+
+        /* Right Column — Registration Card */
+        .register-card {
+            background: rgba(255,255,255,0.03);
+            border: 2px solid rgba(224, 121, 36, 0.25);
+            padding: 2.5rem;
+            position: sticky; top: 6rem;
+        }
+        .register-card-header {
+            text-align: center; margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .register-card-header h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.75rem; letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .register-card-header p {
+            font-size: 0.9rem; color: var(--gray-400);
+        }
+
+        /* Spots Counter */
+        .spots-counter {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.5rem; margin-bottom: 1.5rem;
+            padding: 0.75rem;
+            background: rgba(220, 38, 38, 0.08);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+        .spots-counter svg { width: 18px; height: 18px; color: #dc2626; }
+        .spots-counter span { font-size: 0.9rem; color: #dc2626; font-weight: 600; }
+
+        /* Form Fields (Name, Email, Phone — collected before redirect) */
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label {
+            display: block; font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--gray-400); margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%; padding: 0.9rem 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: var(--white); font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem; transition: all 0.3s ease;
+            outline: none;
+        }
+        .form-group input::placeholder { color: var(--gray-600); }
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent);
+            background: rgba(224, 121, 36, 0.05);
+            box-shadow: 0 0 0 3px rgba(224, 121, 36, 0.1);
+        }
+        .form-group select { cursor: pointer; }
+        .form-group select option { background: var(--bg-dark); color: var(--white); }
+
+        /* Tier Selection */
+        .tier-options { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .tier-option {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1rem 1.25rem; cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .tier-option:hover { border-color: rgba(224, 121, 36, 0.3); background: rgba(224, 121, 36, 0.04); }
+        .tier-option.selected {
+            border-color: var(--accent);
+            background: rgba(224, 121, 36, 0.08);
+        }
+        .tier-option input[type="radio"] { display: none; }
+        .tier-radio {
+            width: 20px; height: 20px; border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.2);
+            flex-shrink: 0; position: relative;
+            transition: all 0.3s ease;
+        }
+        .tier-option.selected .tier-radio {
+            border-color: var(--accent);
+        }
+        .tier-option.selected .tier-radio::after {
+            content: ''; position: absolute;
+            top: 3px; left: 3px; width: 10px; height: 10px;
+            border-radius: 50%; background: var(--accent);
+        }
+        .tier-info { flex: 1; }
+        .tier-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.15rem; }
+        .tier-desc { font-size: 0.8rem; color: var(--gray-400); }
+        .tier-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.75rem; color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .tier-badge {
+            position: absolute; top: -1px; right: -1px;
+            background: var(--accent); color: var(--white);
+            font-size: 0.65rem; font-weight: 700;
+            padding: 0.25rem 0.65rem; letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* CTA Button */
+        .register-cta {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.75rem; width: 100%;
+            background: var(--accent); color: var(--white);
+            padding: 1.25rem 2rem; font-size: 1.05rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: none; cursor: pointer; transition: all 0.3s ease;
+            text-decoration: none; margin-top: 0.5rem;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .register-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(224, 121, 36, 0.35);
+        }
+        .register-cta:disabled {
+            opacity: 0.5; cursor: not-allowed;
+            transform: none; box-shadow: none;
+        }
+        .register-cta svg { width: 20px; height: 20px; transition: transform 0.3s ease; }
+        .register-cta:hover svg { transform: translateX(4px); }
+
+        /* Stripe Badge */
+        .stripe-badge {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.5rem; margin-top: 1rem;
+            font-size: 0.8rem; color: var(--gray-600);
+        }
+        .stripe-badge svg { width: 16px; height: 16px; }
+
+        /* Form Error */
+        .form-error {
+            font-size: 0.8rem; color: #dc2626;
+            margin-top: 0.35rem; display: none;
+        }
+        .form-group.error input { border-color: #dc2626; }
+        .form-group.error .form-error { display: block; }
+
+        /* Success State */
+        .register-success {
+            display: none; text-align: center; padding: 3rem 2rem;
+        }
+        .register-success.show { display: block; }
+        .register-success svg { width: 64px; height: 64px; color: #22c55e; margin-bottom: 1.5rem; }
+        .register-success h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem; margin-bottom: 1rem;
+        }
+        .register-success p { font-size: 1rem; color: var(--gray-400); line-height: 1.6; }
+
+        /* Footer */
+        .footer { padding: 2rem 4%; background: var(--bg-darker); border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo { display: flex; flex-direction: column; line-height: 1.1; }
+        .footer-logo .logo-main { font-size: 1.25rem; }
+        .footer-logo .logo-sub { font-size: 0.7rem; }
+        .footer-text { font-size: 0.85rem; color: var(--gray-600); }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .register-container { grid-template-columns: 1fr; gap: 2.5rem; }
+            .register-card { position: static; }
+            .trust-row { flex-direction: column; gap: 0.75rem; }
+        }
+
+        /* Animations */
+        .animate-in { opacity: 0; transform: translateY(25px); animation: fadeUp 0.7s ease forwards; }
+        .delay-1 { animation-delay: 0.15s; }
+        .delay-2 { animation-delay: 0.3s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <span class="logo-main">RONNIE MICHAEL</span>
+            <span class="logo-sub">& Company</span>
+        </div>
+        <div class="nav-spots">
+            <span class="pulse"></span>
+            <span id="navSpots">5 Early Bird Spots Left</span>
+        </div>
+    </nav>
+
+    <!-- Registration Page -->
+    <section class="register-page">
+        <div class="register-container">
+
+            <!-- Left Column — What You're Getting -->
+            <div class="register-summary animate-in">
+                <div class="register-label">Limited to 20 Coaches</div>
+                <h1>THE FIRST <span class="accent">$20K</span> COHORT</h1>
+                <p class="subtitle">
+                    How Burnt-Out 1:1 Coaches <strong>Build, Fill, and Deliver</strong> a Premium Group Program That Generates $20K &mdash; By Delivering an Outcome to A Problem
+                </p>
+
+                <ul class="getting-list">
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <span><strong>Complete Cohort Architecture Blueprint</strong> &mdash; curriculum, pricing model, and offer stack designed from your 1:1 expertise</span>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <span><strong>Done-With-You Sales Page</strong> &mdash; a live asset you use to enroll founding members during Week 2</span>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <span><strong>Pre-Sell Outreach Scripts &amp; Sequences</strong> &mdash; DM scripts, email templates, and enrollment frameworks</span>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <span><strong>Curriculum, Tech, Templates, AI Prompts &amp; Community</strong> &mdash; your complete delivery system</span>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <span><strong>90-Minute 1:1 Strategy Session</strong> with Ronnie &mdash; finalize your launch plan</span>
+                    </li>
+                    <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        <span><strong>$1,000 Launch Competition</strong> &mdash; most founding members enrolled wins</span>
+                    </li>
+                </ul>
+
+                <div class="pricing-strip">
+                    <span class="original">$1,497</span>
+                    <span class="current">$997</span>
+                    <span class="savings">Save $500<br>Early Bird</span>
+                </div>
+
+                <div class="guarantee-strip">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                    <p><strong>&ldquo;Pre-Sell or It&rsquo;s Free&rdquo; Guarantee.</strong> Complete all 3 weeks and do the work. If you don&rsquo;t have at least 3 founding members by Day 21, I&rsquo;ll work with you 1-on-1 until you do&mdash;or refund every dollar.</p>
+                </div>
+
+                <div class="trust-row">
+                    <div class="trust-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        <span>256-bit SSL Encrypted</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                        <span>Powered by Stripe</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                        <span>Money-Back Guarantee</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column — Registration Form -->
+            <div class="register-card animate-in delay-1">
+                <div id="formSection">
+                    <div class="register-card-header">
+                        <h2>SECURE YOUR <span class="accent">SPOT</span></h2>
+                        <p>Complete the form below, then proceed to secure checkout via Stripe.</p>
+                    </div>
+
+                    <div class="spots-counter">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span id="spotsText">5 Early Bird Spots Remaining</span>
+                    </div>
+
+                    <form id="registerForm" novalidate>
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="e.g. Sarah Mitchell" required autocomplete="name">
+                            <div class="form-error">Please enter your full name.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="e.g. sarah@coachingbiz.com" required autocomplete="email">
+                            <div class="form-error">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="e.g. (555) 123-4567" required autocomplete="tel">
+                            <div class="form-error">Please enter your phone number.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coaching">Coaching Niche / Specialty</label>
+                            <input type="text" id="coaching" name="coaching" placeholder="e.g. Executive Leadership, Health & Wellness">
+                        </div>
+
+                        <!-- Tier Selection -->
+                        <label style="display: block; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.65rem;">Select Your Tier</label>
+                        <div class="tier-options">
+                            <div class="tier-option selected" data-tier="early" data-price="997" data-link="YOUR_STRIPE_EARLY_BIRD_LINK">
+                                <input type="radio" name="tier" value="early" checked>
+                                <div class="tier-radio"></div>
+                                <div class="tier-info">
+                                    <div class="tier-name">Early Bird</div>
+                                    <div class="tier-desc">First 5 coaches &mdash; Save $500</div>
+                                </div>
+                                <div class="tier-price">$997</div>
+                                <div class="tier-badge">Best Value</div>
+                            </div>
+                            <div class="tier-option" data-tier="standard" data-price="1497" data-link="YOUR_STRIPE_STANDARD_LINK">
+                                <input type="radio" name="tier" value="standard">
+                                <div class="tier-radio"></div>
+                                <div class="tier-info">
+                                    <div class="tier-name">Standard</div>
+                                    <div class="tier-desc">Full program access</div>
+                                </div>
+                                <div class="tier-price">$1,497</div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="register-cta" id="submitBtn">
+                            Proceed to Secure Checkout
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        </button>
+
+                        <div class="stripe-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                            Secure payment processed by Stripe
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Success State (shown after form validation before redirect) -->
+                <div class="register-success" id="successSection">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h3>REDIRECTING TO <span class="accent">CHECKOUT</span></h3>
+                    <p>You&rsquo;re being redirected to Stripe&rsquo;s secure checkout. If you&rsquo;re not redirected in 3 seconds, <a href="#" id="manualLink" style="color: var(--accent); text-decoration: underline;">click here</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <span class="logo-main">RONNIE MICHAEL</span>
+            <span class="logo-sub">& Company</span>
+        </div>
+        <div class="footer-text">&copy; 2026 Ronnie Michael & Company. All rights reserved.</div>
+    </footer>
+
+    <script>
+    /* ═══════════════════════════════════════════════════════
+       STRIPE PAYMENT LINK CONFIGURATION
+       ═══════════════════════════════════════════════════════
+       Replace these URLs with your actual Stripe Payment Links.
+
+       How to create a Stripe Payment Link:
+       1. Go to https://dashboard.stripe.com/payment-links
+       2. Click "+ New" to create a payment link
+       3. Set price to $997 (early bird) or $1,497 (standard)
+       4. Under "After payment" → choose redirect URL
+       5. Under "Collect customer info" → enable Email & Phone
+       6. Copy the link and paste below
+
+       You can pre-fill customer info by appending query params:
+       ?prefilled_email=EMAIL&client_reference_id=REFERENCE
+       ═══════════════════════════════════════════════════════ */
+
+    const STRIPE_LINKS = {
+        early:    'https://buy.stripe.com/5kQ00ifV2d1ldfS378e7m01',   // $997 Early Bird
+        standard: 'https://buy.stripe.com/4gM00ieQY1iD5NqgXYe7m02'  // $1,497 Standard
+    };
+
+    // Tier selection
+    document.querySelectorAll('.tier-option').forEach(option => {
+        option.addEventListener('click', () => {
+            document.querySelectorAll('.tier-option').forEach(o => o.classList.remove('selected'));
+            option.classList.add('selected');
+            option.querySelector('input[type="radio"]').checked = true;
+        });
+    });
+
+    // Form validation & submission
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let valid = true;
+        const name = document.getElementById('fullName');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+
+        // Clear errors
+        document.querySelectorAll('.form-group').forEach(g => g.classList.remove('error'));
+
+        // Validate name
+        if (!name.value.trim()) {
+            name.closest('.form-group').classList.add('error');
+            valid = false;
+        }
+
+        // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value.trim())) {
+            email.closest('.form-group').classList.add('error');
+            valid = false;
+        }
+
+        // Validate phone
+        if (!phone.value.trim() || phone.value.trim().length < 7) {
+            phone.closest('.form-group').classList.add('error');
+            valid = false;
+        }
+
+        if (!valid) return;
+
+        // Get selected tier
+        const selectedTier = document.querySelector('.tier-option.selected').dataset.tier;
+        const stripeUrl = STRIPE_LINKS[selectedTier];
+
+        // Build Stripe URL with prefilled email
+        const encodedEmail = encodeURIComponent(email.value.trim());
+        const encodedName = encodeURIComponent(name.value.trim());
+        const finalUrl = stripeUrl +
+            '?prefilled_email=' + encodedEmail +
+            '&client_reference_id=' + encodedName;
+
+        // Show success state
+        document.getElementById('formSection').querySelector('form').style.display = 'none';
+        document.getElementById('formSection').querySelector('.register-card-header').style.display = 'none';
+        document.getElementById('formSection').querySelector('.spots-counter').style.display = 'none';
+        document.getElementById('successSection').classList.add('show');
+        document.getElementById('manualLink').href = finalUrl;
+
+        // Store registration data in sessionStorage for reference
+        // (This data is also captured by Stripe at checkout)
+        const regData = {
+            name: name.value.trim(),
+            email: email.value.trim(),
+            phone: phone.value.trim(),
+            coaching: document.getElementById('coaching').value.trim(),
+            tier: selectedTier,
+            timestamp: new Date().toISOString()
+        };
+        console.log('Registration data:', JSON.stringify(regData));
+
+        // Redirect to Stripe after short delay
+        setTimeout(() => {
+            window.location.href = finalUrl;
+        }, 2000);
+    });
+
+    // Phone formatting
+    document.getElementById('phone').addEventListener('input', function(e) {
+        let val = e.target.value.replace(/\D/g, '');
+        if (val.length >= 10) {
+            val = '(' + val.substring(0,3) + ') ' + val.substring(3,6) + '-' + val.substring(6,10);
+        } else if (val.length >= 6) {
+            val = '(' + val.substring(0,3) + ') ' + val.substring(3,6) + '-' + val.substring(6);
+        } else if (val.length >= 3) {
+            val = '(' + val.substring(0,3) + ') ' + val.substring(3);
+        }
+        e.target.value = val;
+    });
+    </script>
+</body>
+</html>

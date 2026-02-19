@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Aboard! | The First $20K Cohort — Ronnie Michael & Company</title>
+    <meta name="description" content="Your enrollment in The First $20K Cohort is confirmed. Welcome to the team.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-darker: #0a0a0a;
+            --accent: #e07924;
+            --accent-hover: #f08a35;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e0e0e0;
+            --gray-400: #9e9e9e;
+            --gray-600: #757575;
+            --gray-800: #424242;
+            --green: #22c55e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .accent { color: var(--accent); }
+        .green { color: var(--green); }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            padding: 0.75rem 4%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .logo { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-main { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--white); letter-spacing: 0.15em; }
+        .logo-sub { font-size: 0.75rem; color: var(--accent); font-weight: 500; letter-spacing: 0.05em; }
+        .nav-enrolled {
+            display: flex; align-items: center; gap: 0.5rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem; font-weight: 700;
+            color: var(--green); letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .nav-enrolled .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        }
+
+        /* ═══════════════════════════════════════════
+           HERO — PAYMENT CONFIRMED
+        ═══════════════════════════════════════════ */
+        .confirm-hero {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 7rem 4% 4rem;
+            text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .confirm-hero::before {
+            content: ''; position: absolute; top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 1000px; height: 1000px;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(34, 197, 94, 0.06) 0%, transparent 45%),
+                radial-gradient(circle at 50% 60%, rgba(224, 121, 36, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .confirm-container {
+            max-width: 750px; margin: 0 auto;
+            position: relative; z-index: 2;
+        }
+
+        /* Animated Checkmark */
+        .confirm-icon {
+            width: 96px; height: 96px; margin: 0 auto 2rem;
+            background: rgba(34, 197, 94, 0.08);
+            border: 3px solid rgba(34, 197, 94, 0.35);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            animation: scaleIn 0.6s ease forwards;
+            position: relative;
+        }
+        .confirm-icon svg { width: 48px; height: 48px; color: var(--green); }
+        .confirm-icon::after {
+            content: ''; position: absolute;
+            width: 100%; height: 100%; border-radius: 50%;
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            animation: ringExpand 1.2s ease 0.4s forwards;
+            opacity: 0;
+        }
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.12); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes ringExpand {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        /* Payment Confirmed Badge */
+        .payment-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            padding: 0.5rem 1.25rem;
+            font-size: 0.8rem; font-weight: 700;
+            color: var(--green); letter-spacing: 0.1em;
+            text-transform: uppercase; margin-bottom: 1.5rem;
+            animation: fadeUp 0.6s ease 0.15s forwards;
+            opacity: 0; transform: translateY(15px);
+        }
+        .payment-badge svg { width: 16px; height: 16px; }
+
+        .confirm-hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 5.5vw, 4rem);
+            line-height: 1.05; margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
+            animation: fadeUp 0.7s ease 0.25s forwards;
+            opacity: 0; transform: translateY(20px);
+        }
+
+        .confirm-subtitle {
+            font-size: 1.2rem; color: var(--gray-200);
+            max-width: 620px; margin: 0 auto 1.25rem;
+            line-height: 1.65;
+            animation: fadeUp 0.7s ease 0.4s forwards;
+            opacity: 0; transform: translateY(20px);
+        }
+        .confirm-subtitle strong { color: var(--white); }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════════════
+           RECEIPT SUMMARY CARD
+        ═══════════════════════════════════════════ */
+        .receipt-card {
+            max-width: 480px; margin: 2.5rem auto 0;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 2rem;
+            animation: fadeUp 0.7s ease 0.55s forwards;
+            opacity: 0; transform: translateY(20px);
+        }
+        .receipt-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 1.25rem; margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .receipt-header h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem; letter-spacing: 0.08em;
+            color: var(--gray-400);
+        }
+        .receipt-header .receipt-status {
+            display: flex; align-items: center; gap: 0.35rem;
+            font-size: 0.8rem; font-weight: 700; color: var(--green);
+        }
+        .receipt-header .receipt-status .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--green);
+        }
+
+        .receipt-row {
+            display: flex; justify-content: space-between;
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
+        }
+        .receipt-row .label { color: var(--gray-400); }
+        .receipt-row .value { color: var(--gray-200); font-weight: 500; }
+
+        .receipt-total {
+            display: flex; justify-content: space-between;
+            padding: 1rem 0 0;
+            margin-top: 0.75rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .receipt-total .label {
+            font-weight: 700; font-size: 1rem;
+        }
+        .receipt-total .value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.75rem; color: var(--accent);
+            line-height: 1;
+        }
+
+        .receipt-note {
+            margin-top: 1rem;
+            font-size: 0.8rem; color: var(--gray-600);
+            text-align: center;
+        }
+        .receipt-note a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+        /* ═══════════════════════════════════════════
+           START DATE BANNER
+        ═══════════════════════════════════════════ */
+        .start-date-banner {
+            max-width: 620px; margin: 3rem auto 0;
+            background: rgba(224, 121, 36, 0.06);
+            border: 1px solid rgba(224, 121, 36, 0.2);
+            padding: 1.75rem 2rem;
+            display: flex; align-items: flex-start; gap: 1rem;
+            animation: fadeUp 0.7s ease 0.7s forwards;
+            opacity: 0; transform: translateY(20px);
+        }
+        .start-date-icon {
+            width: 48px; height: 48px; flex-shrink: 0;
+            background: rgba(224, 121, 36, 0.12);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .start-date-icon svg { width: 24px; height: 24px; color: var(--accent); }
+        .start-date-text h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.15rem; letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+        }
+        .start-date-text p {
+            font-size: 0.95rem; color: var(--gray-400); line-height: 1.5;
+        }
+        .start-date-text strong { color: var(--gray-200); }
+
+        /* ═══════════════════════════════════════════
+           WHAT YOU NOW HAVE ACCESS TO
+        ═══════════════════════════════════════════ */
+        .access-section {
+            padding: 5rem 4%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .access-container {
+            max-width: 900px; margin: 0 auto;
+        }
+        .access-header {
+            text-align: center; margin-bottom: 3rem;
+        }
+        .access-header h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 0.5rem;
+        }
+        .access-header p {
+            font-size: 1.05rem; color: var(--gray-400);
+        }
+
+        .access-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .access-item {
+            display: flex; align-items: flex-start; gap: 1rem;
+            padding: 1.35rem 1.5rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.3s ease;
+        }
+        .access-item:hover {
+            border-color: rgba(224, 121, 36, 0.25);
+            background: rgba(224, 121, 36, 0.03);
+        }
+        .access-check {
+            width: 28px; height: 28px; flex-shrink: 0;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-top: 2px;
+        }
+        .access-check svg { width: 14px; height: 14px; color: var(--green); }
+        .access-item h4 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+        .access-item p { font-size: 0.85rem; color: var(--gray-400); line-height: 1.4; }
+
+        /* ═══════════════════════════════════════════
+           YOUR 21-DAY JOURNEY
+        ═══════════════════════════════════════════ */
+        .journey-section {
+            padding: 5rem 4%;
+            background: var(--bg-darker);
+        }
+        .journey-container {
+            max-width: 900px; margin: 0 auto;
+        }
+        .journey-header {
+            text-align: center; margin-bottom: 3rem;
+        }
+        .journey-header h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 0.5rem;
+        }
+        .journey-header p {
+            font-size: 1rem; color: var(--gray-400);
+        }
+
+        .journey-timeline {
+            display: flex; gap: 1.5rem;
+        }
+        .journey-week {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            overflow: hidden; transition: all 0.4s ease;
+            position: relative;
+        }
+        .journey-week:hover {
+            border-color: rgba(224, 121, 36, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(224, 121, 36, 0.1);
+        }
+        .journey-week-bar {
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+        }
+        .journey-week-body { padding: 1.75rem 1.5rem; }
+        .journey-week-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.75rem; letter-spacing: 0.15em;
+            color: var(--accent); margin-bottom: 0.65rem;
+        }
+        .journey-week-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem; line-height: 1.1;
+            margin-bottom: 0.65rem; letter-spacing: 0.03em;
+        }
+        .journey-week-desc {
+            font-size: 0.88rem; color: var(--gray-400); line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .journey-week-output {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.78rem; color: var(--green);
+            font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .journey-week-output svg { width: 14px; height: 14px; }
+
+        /* ═══════════════════════════════════════════
+           WHAT HAPPENS NEXT — 3 STEPS
+        ═══════════════════════════════════════════ */
+        .next-steps {
+            padding: 5rem 4%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .next-steps-container {
+            max-width: 800px; margin: 0 auto;
+            text-align: center;
+        }
+        .next-steps h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 2.5rem;
+        }
+
+        .steps-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2rem; margin-bottom: 3.5rem;
+        }
+        .step-item { text-align: center; }
+        .step-number {
+            width: 52px; height: 52px; margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: rgba(224, 121, 36, 0.1);
+            border: 2px solid rgba(224, 121, 36, 0.3);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem; color: var(--accent);
+        }
+        .step-item h4 { font-size: 1rem; margin-bottom: 0.4rem; }
+        .step-item p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.5; }
+
+        /* Important Reminder Box */
+        .reminder-box {
+            max-width: 600px; margin: 0 auto;
+            background: rgba(224, 121, 36, 0.05);
+            border: 1px solid rgba(224, 121, 36, 0.2);
+            padding: 1.5rem 2rem;
+            text-align: left;
+        }
+        .reminder-box h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem; color: var(--accent);
+            letter-spacing: 0.05em; margin-bottom: 0.5rem;
+        }
+        .reminder-box p {
+            font-size: 0.9rem; color: var(--gray-400); line-height: 1.5;
+        }
+        .reminder-box strong { color: var(--gray-200); }
+
+        /* ═══════════════════════════════════════════
+           QUICK ABOUT
+        ═══════════════════════════════════════════ */
+        .about-quick {
+            padding: 4rem 4%;
+            background: var(--bg-darker);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .about-quick-container {
+            max-width: 620px; margin: 0 auto;
+            display: flex; align-items: center; gap: 2rem;
+        }
+        .about-quick-img {
+            width: 100px; height: 100px; flex-shrink: 0;
+            border-radius: 50%; overflow: hidden;
+            border: 3px solid rgba(224, 121, 36, 0.4);
+        }
+        .about-quick-img img { width: 100%; height: 100%; object-fit: cover; }
+        .about-quick-text h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.25rem; margin-bottom: 0.35rem;
+        }
+        .about-quick-text p {
+            font-size: 0.92rem; color: var(--gray-400); line-height: 1.5;
+        }
+        .about-quick-text .quote {
+            font-style: italic; color: var(--gray-200);
+            margin-top: 0.75rem; padding-left: 0.75rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* ═══════════════════════════════════════════
+           SHARE
+        ═══════════════════════════════════════════ */
+        .share-section {
+            padding: 3rem 4%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .share-section p {
+            font-size: 1rem; color: var(--gray-400);
+            margin-bottom: 1.25rem;
+        }
+        .share-buttons {
+            display: flex; justify-content: center; gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.7rem 1.35rem;
+            font-size: 0.82rem; font-weight: 600;
+            text-decoration: none; transition: all 0.3s ease;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer; border: none;
+        }
+        .share-btn.linkedin {
+            background: rgba(10, 102, 194, 0.12);
+            color: #0A66C2; border: 1px solid rgba(10, 102, 194, 0.25);
+        }
+        .share-btn.linkedin:hover { background: rgba(10, 102, 194, 0.22); transform: translateY(-2px); }
+        .share-btn.twitter {
+            background: rgba(255,255,255,0.04);
+            color: var(--gray-200); border: 1px solid rgba(255,255,255,0.1);
+        }
+        .share-btn.twitter:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+        .share-btn.email {
+            background: rgba(224, 121, 36, 0.08);
+            color: var(--accent); border: 1px solid rgba(224, 121, 36, 0.2);
+        }
+        .share-btn.email:hover { background: rgba(224, 121, 36, 0.16); transform: translateY(-2px); }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 4%; background: var(--bg-darker);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-logo { display: flex; flex-direction: column; line-height: 1.1; }
+        .footer-logo .logo-main { font-size: 1.25rem; }
+        .footer-logo .logo-sub { font-size: 0.7rem; }
+        .footer-text { font-size: 0.85rem; color: var(--gray-600); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .access-grid { grid-template-columns: 1fr; }
+            .journey-timeline { flex-direction: column; }
+            .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-quick-container { flex-direction: column; text-align: center; }
+            .about-quick-text .quote { border-left: none; padding-left: 0; border-top: 3px solid var(--accent); padding-top: 0.75rem; }
+            .receipt-card { margin-left: 1rem; margin-right: 1rem; }
+            .start-date-banner { margin-left: 1rem; margin-right: 1rem; flex-direction: column; align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <span class="logo-main">RONNIE MICHAEL</span>
+            <span class="logo-sub">& Company</span>
+        </div>
+        <div class="nav-enrolled">
+            <span class="dot"></span>
+            Enrollment Confirmed
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════
+         HERO — PAYMENT CONFIRMED
+    ═══════════════════════════════════════════ -->
+    <section class="confirm-hero">
+        <div class="confirm-container">
+            <div class="confirm-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+            </div>
+
+            <div class="payment-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                Payment Confirmed
+            </div>
+
+            <h1>WELCOME TO<br>THE FIRST <span class="accent">$20K</span> COHORT!</h1>
+
+            <p class="confirm-subtitle">
+                <strong>You just made the decision</strong> that changes your business model forever. No more trading hours for dollars. In 21 days, you'll have a designed cohort, paying founding members, and a delivery system that scales.
+            </p>
+
+            <p class="confirm-subtitle" style="animation-delay: 0.5s;">
+                <strong>Thank you for your investment.</strong> A confirmation email with your receipt is on its way to your inbox right now.
+            </p>
+
+            <!-- Receipt Summary Card -->
+            <div class="receipt-card">
+                <div class="receipt-header">
+                    <h3>ORDER SUMMARY</h3>
+                    <div class="receipt-status">
+                        <span class="dot"></span>
+                        Confirmed
+                    </div>
+                </div>
+                <div class="receipt-row">
+                    <span class="label">Program</span>
+                    <span class="value">The First $20K Cohort</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="label">Duration</span>
+                    <span class="value">21 Days (3 Weeks)</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="label">Format</span>
+                    <span class="value">Live Group + 1:1 Session</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="label">Includes</span>
+                    <span class="value">Full Toolkit + Community Access</span>
+                </div>
+                <div class="receipt-total">
+                    <span class="label">Total Paid</span>
+                    <span class="value">$997</span>
+                </div>
+                <p class="receipt-note">Your Stripe receipt has been emailed. Questions? <a href="mailto:rmichaelsmith@gmail.com">Contact Ronnie</a></p>
+            </div>
+
+            <!-- Start Date Banner -->
+            <div class="start-date-banner">
+                <div class="start-date-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                </div>
+                <div class="start-date-text">
+                    <h4>COHORT START DATE <span class="accent">COMING SOON</span></h4>
+                    <p><strong>We'll notify you with the exact start date</strong> as soon as we finalize enrollment. You'll receive an email with the date, onboarding steps, and how to access the community. Expect this within the next few days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         WHAT YOU NOW HAVE ACCESS TO
+    ═══════════════════════════════════════════ -->
+    <section class="access-section">
+        <div class="access-container">
+            <div class="access-header">
+                <h2>WHAT YOU <span class="accent">JUST UNLOCKED</span></h2>
+                <p>Everything you need to go from idea to revenue in 21 days.</p>
+            </div>
+
+            <div class="access-grid">
+                <div class="access-item">
+                    <div class="access-check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg></div>
+                    <div>
+                        <h4>Cohort Architecture Blueprint</h4>
+                        <p>Your complete program design built from your 1:1 expertise</p>
+                    </div>
+                </div>
+                <div class="access-item">
+                    <div class="access-check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg></div>
+                    <div>
+                        <h4>Premium Pricing Strategy</h4>
+                        <p>Offer stacking and the psychology of $20K+ group pricing</p>
+                    </div>
+                </div>
+                <div class="access-item">
+                    <div class="access-check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg></div>
+                    <div>
+                        <h4>Done-With-You Sales Page</h4>
+                        <p>A live asset to enroll founding members during Week 2</p>
+                    </div>
+                </div>
+                <div class="access-item">
+                    <div class="access-check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg></div>
+                    <div>
+                        <h4>Pre-Sell Outreach Scripts</h4>
+                        <p>DM scripts, email sequences, and enrollment frameworks</p>
+                    </div>
+                </div>
+                <div class="access-item">
+                    <div class="access-check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg></div>
+                    <div>
+                        <h4>Curriculum, Tech &amp; AI Prompts</h4>
+                        <p>Templates, community setup, and your complete delivery system</p>
+                    </div>
+                </div>
+                <div class="access-item">
+                    <div class="access-check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg></div>
+                    <div>
+                        <h4>90-Min 1:1 with Ronnie</h4>
+                        <p>Private strategy session to finalize your launch plan</p>
+                    </div>
+                </div>
+                <div class="access-item">
+                    <div class="access-check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg></div>
+                    <div>
+                        <h4>Private Community Access</h4>
+                        <p>Lifetime access to the cohort community of coaches</p>
+                    </div>
+                </div>
+                <div class="access-item">
+                    <div class="access-check"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg></div>
+                    <div>
+                        <h4>$1,000 Launch Competition</h4>
+                        <p>Most founding members enrolled wins — announced Day 1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         YOUR 21-DAY JOURNEY
+    ═══════════════════════════════════════════ -->
+    <section class="journey-section">
+        <div class="journey-container">
+            <div class="journey-header">
+                <h2>YOUR <span class="accent">21-DAY JOURNEY</span></h2>
+                <p>Here's what the next 3 weeks look like for you.</p>
+            </div>
+            <div class="journey-timeline">
+                <div class="journey-week">
+                    <div class="journey-week-bar"></div>
+                    <div class="journey-week-body">
+                        <div class="journey-week-label">WEEK 1</div>
+                        <div class="journey-week-title">Architect</div>
+                        <div class="journey-week-desc">Turn your 1:1 expertise into a group cohort blueprint. Curriculum arc, pricing model, and irresistible offer stack.</div>
+                        <div class="journey-week-output">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            Cohort Blueprint Complete
+                        </div>
+                    </div>
+                </div>
+                <div class="journey-week">
+                    <div class="journey-week-bar"></div>
+                    <div class="journey-week-body">
+                        <div class="journey-week-label">WEEK 2</div>
+                        <div class="journey-week-title">Pre-Sell</div>
+                        <div class="journey-week-desc">Build your sales page, craft outreach, and lock in 5&ndash;10 founding members before you build a single lesson.</div>
+                        <div class="journey-week-output">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            Founding Members Enrolled
+                        </div>
+                    </div>
+                </div>
+                <div class="journey-week">
+                    <div class="journey-week-bar"></div>
+                    <div class="journey-week-body">
+                        <div class="journey-week-label">WEEK 3</div>
+                        <div class="journey-week-title">Build &amp; Launch</div>
+                        <div class="journey-week-desc">Set up delivery: templates, community, tech stack, plus your 1:1 strategy session with Ronnie.</div>
+                        <div class="journey-week-output">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            Launch-Ready System
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         WHAT HAPPENS NEXT
+    ═══════════════════════════════════════════ -->
+    <section class="next-steps">
+        <div class="next-steps-container">
+            <h2>WHAT HAPPENS <span class="accent">NEXT</span></h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h4>Check Your Email</h4>
+                    <p>Your Stripe receipt and welcome email are on the way. Check your inbox (and spam, just in case).</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h4>Start Date Notification</h4>
+                    <p>We'll email you the exact cohort start date, onboarding link, and community access within the next few days.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h4>Day 1 Kicks Off</h4>
+                    <p>Once Day 1 arrives, you'll have immediate access to pre-work materials and the private community to hit the ground running.</p>
+                </div>
+            </div>
+
+            <div class="reminder-box">
+                <h4>IMPORTANT: ADD US TO YOUR CONTACTS</h4>
+                <p>To make sure you don't miss the start date notification, <strong>add rmichaelsmith@gmail.com to your contacts</strong> and whitelist the domain. All cohort communications come from this address.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick About -->
+    <section class="about-quick">
+        <div class="about-quick-container">
+            <div class="about-quick-img">
+                <img src="ronnie-headshot.jpg" alt="Ronnie Michael">
+            </div>
+            <div class="about-quick-text">
+                <h4>RONNIE <span class="accent">MICHAEL</span></h4>
+                <p>20 years leading Fortune 500 sales teams. 2 startups sold. Now helping coaches break through the 1:1 ceiling.</p>
+                <p class="quote">&ldquo;You just made the hardest decision&mdash;the one to stop trading time for money. Everything from here is execution, and I've got your back for every step of it.&rdquo;</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share -->
+    <section class="share-section">
+        <p>Know a coach who should be in this cohort? Share before spots fill up:</p>
+        <div class="share-buttons">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=YOUR_LANDING_PAGE_URL" target="_blank" class="share-btn linkedin">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                Share on LinkedIn
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=Just%20enrolled%20in%20The%20First%20%2420K%20Cohort%20by%20Ronnie%20Michael.%2021%20days%20to%20launch%20a%20%2420K%20group%20coaching%20program.%20Limited%20to%2020%20coaches.&url=YOUR_LANDING_PAGE_URL" target="_blank" class="share-btn twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Share on X
+            </a>
+            <a href="mailto:?subject=I%20just%20joined%20The%20First%20%2420K%20Cohort&body=Hey%2C%20I%20just%20enrolled%20in%20The%20First%20%2420K%20Cohort%20by%20Ronnie%20Michael.%20It%E2%80%99s%20a%2021-day%20program%20that%20helps%20coaches%20design%2C%20pre-sell%2C%20and%20launch%20a%20%2420K%20group%20coaching%20program.%20Only%2020%20spots.%20Check%20it%20out%3A%20YOUR_LANDING_PAGE_URL" class="share-btn email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Email a Friend
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <span class="logo-main">RONNIE MICHAEL</span>
+            <span class="logo-sub">& Company</span>
+        </div>
+        <div class="footer-text">&copy; 2026 Ronnie Michael & Company. All rights reserved.</div>
+    </footer>
+
+</body>
+</html>
