@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First $20K Cohort | 21 Days to Design, Pre-Sell & Launch Your Group Coaching Program</title>
+    <meta name="description" content="How burnt-out 1:1 coaches build, fill, and deliver a premium group program that generates $20K — by delivering an outcome to a problem.">
+    <meta property="og:title" content="The First $20K Cohort | From 1:1 to $20K+ Group Coaching in 21 Days">
+    <meta property="og:description" content="For solo coaches income-capped at 1:1. Design your cohort. Pre-sell founding members. Launch in 21 days.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-darker: #0a0a0a;
+            --accent: #e07924;
+            --accent-hover: #f08a35;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-200: #e0e0e0;
+            --gray-400: #9e9e9e;
+            --gray-600: #757575;
+            --gray-800: #424242;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+        .accent { color: var(--accent); }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%;
+            padding: 0.75rem 4%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-main { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--white); letter-spacing: 0.15em; }
+        .logo-sub { font-size: 0.75rem; color: var(--accent); font-weight: 500; letter-spacing: 0.05em; }
+
+        .nav-cta {
+            background: var(--accent); color: var(--white);
+            padding: 0.75rem 1.5rem; border: none;
+            font-weight: 600; font-size: 0.9rem; cursor: pointer;
+            transition: all 0.3s ease; text-transform: uppercase;
+            letter-spacing: 0.05em; text-decoration: none;
+        }
+        .nav-cta:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding: 8rem 4% 4rem; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%;
+            background: radial-gradient(ellipse at 70% 30%, rgba(224, 121, 36, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; width: 100%; }
+        .hero-content { z-index: 2; }
+        .hero-label {
+            display: inline-block; background: rgba(224, 121, 36, 0.15);
+            color: var(--accent); padding: 0.5rem 1rem;
+            font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; margin-bottom: 1.5rem;
+            border: 1px solid rgba(224, 121, 36, 0.3);
+        }
+        .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); line-height: 1; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+        .hero-subtitle { font-size: 1.35rem; color: var(--gray-200); margin-bottom: 2rem; max-width: 540px; line-height: 1.5; }
+        .hero-subtitle strong { color: var(--white); }
+
+        /* Hero Stats Row (21 Days + deliverable cards) */
+        .hero-stats {
+            display: flex; align-items: center; gap: 2rem;
+            margin-bottom: 2.5rem; flex-wrap: wrap;
+        }
+        .hero-deliverables {
+            display: flex; align-items: stretch; gap: 0;
+        }
+        .hero-deliverable {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            padding: 0.85rem 1rem;
+            background: rgba(224, 121, 36, 0.06);
+            border: 1px solid rgba(224, 121, 36, 0.2);
+        }
+        .hero-deliverable:first-child { border-right: none; }
+        .hero-deliverable:last-child { border-left: none; }
+        .deliverable-icon {
+            width: 32px; height: 32px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(224, 121, 36, 0.15); border-radius: 50%;
+            color: var(--accent); font-weight: 700; font-size: 0.9rem;
+        }
+        .deliverable-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.05rem; letter-spacing: 0.03em;
+            color: var(--white); line-height: 1.1;
+        }
+        .deliverable-desc {
+            font-size: 0.75rem; color: var(--gray-400);
+            margin-top: 0.15rem; line-height: 1.3;
+        }
+        .hero-deliverable-plus {
+            display: flex; align-items: center; justify-content: center;
+            padding: 0 0.1rem;
+            background: rgba(224, 121, 36, 0.06);
+            border-top: 1px solid rgba(224, 121, 36, 0.2);
+            border-bottom: 1px solid rgba(224, 121, 36, 0.2);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.25rem; color: var(--accent);
+        }
+        .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--accent); line-height: 1; }
+        .stat-label { font-size: 0.85rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: var(--accent); color: var(--white);
+            padding: 1.25rem 2.5rem; font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: none; cursor: pointer; transition: all 0.3s ease; text-decoration: none;
+        }
+        .hero-cta:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(224, 121, 36, 0.3); }
+        .hero-cta svg { width: 20px; height: 20px; transition: transform 0.3s ease; }
+        .hero-cta:hover svg { transform: translateX(4px); }
+
+        .hero-visual { position: relative; z-index: 1; }
+        .hero-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            padding: 2.5rem; border-radius: 8px;
+        }
+        .hero-card-label { font-size: 0.75rem; color: var(--accent); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .math-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .math-label { font-size: 0.95rem; color: var(--gray-200); }
+        .math-value { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; }
+        .math-value.old { color: #dc2626; text-decoration: line-through; opacity: 0.6; }
+        .math-value.new { color: #22c55e; }
+        .math-verdict { margin-top: 1.5rem; padding: 1rem; background: rgba(34, 197, 94, 0.1); border-left: 3px solid #22c55e; }
+        .math-verdict p { font-size: 0.9rem; color: var(--gray-200); }
+        .math-verdict strong { color: #22c55e; }
+        .math-versus {
+            display: flex; align-items: center; justify-content: center;
+            padding: 1rem 0; color: var(--accent);
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* Problem Section */
+        .problem { background: var(--white); color: var(--bg-dark); padding: 6rem 4%; }
+        .problem-container { max-width: 900px; margin: 0 auto; }
+        .section-label {
+            display: inline-block; background: rgba(224, 121, 36, 0.1);
+            color: var(--accent); padding: 0.5rem 1rem;
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
+            text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+        .problem h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 2rem; }
+        .problem-text { font-size: 1.2rem; color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.7; }
+        .problem-text strong { color: var(--bg-dark); }
+        .problem-list { list-style: none; margin: 2.5rem 0; }
+        .problem-list li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; font-size: 1.1rem; color: var(--gray-800); }
+        .problem-list li::before { content: '\2717'; color: #dc2626; font-weight: 700; font-size: 1.25rem; line-height: 1.4; }
+        .problem-highlight {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a1a 100%);
+            color: var(--white); padding: 2.5rem; margin-top: 3rem; border-left: 4px solid var(--accent);
+        }
+        .problem-highlight p { font-size: 1.3rem; font-style: italic; line-height: 1.6; }
+        .problem-math {
+            background: #f8f8f8; border: 2px solid var(--gray-200);
+            padding: 2rem; margin: 2.5rem 0; border-radius: 4px;
+        }
+        .problem-math h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--bg-dark); margin-bottom: 1rem; }
+        .problem-math .calc { font-size: 1.1rem; color: var(--gray-800); margin-bottom: 0.5rem; }
+        .problem-math .result { font-size: 1.3rem; font-weight: 700; color: #dc2626; margin-top: 1rem; }
+
+        /* Solution/Weeks */
+        .solution { padding: 6rem 4%; background: var(--bg-dark); }
+        .solution-container { max-width: 1200px; margin: 0 auto; }
+        .solution-header { text-align: center; margin-bottom: 4rem; }
+        .solution h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+        .solution-subtitle { font-size: 1.2rem; color: var(--gray-400); max-width: 700px; margin: 0 auto; }
+        .weeks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .week-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            padding: 2.5rem 2rem; transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
+        .week-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+        }
+        .week-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(224, 121, 36, 0.3); transform: translateY(-5px); }
+        .week-card:hover::before { transform: scaleX(1); }
+        .week-number { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: var(--accent); opacity: 0.3; line-height: 1; margin-bottom: 1rem; }
+        .week-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 0.05em; }
+        .week-desc { font-size: 0.95rem; color: var(--gray-400); margin-bottom: 1.5rem; line-height: 1.6; }
+        .week-deliverable { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--accent); font-weight: 600; }
+        .week-deliverable svg { width: 16px; height: 16px; }
+
+        /* Transformation */
+        .transformation { background: var(--white); color: var(--bg-dark); padding: 6rem 4%; }
+        .transformation-container { max-width: 1100px; margin: 0 auto; }
+        .transformation h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); text-align: center; margin-bottom: 4rem; }
+        .transform-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: center; }
+        .transform-before, .transform-after { padding: 2.5rem; }
+        .transform-before { background: #fafafa; border: 2px dashed var(--gray-200); }
+        .transform-after { background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a1a 100%); color: var(--white); border: 2px solid var(--accent); }
+        .transform-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0.6; }
+        .transform-after .transform-label { color: var(--accent); opacity: 1; }
+        .transform-list { list-style: none; }
+        .transform-list li { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 1rem; }
+        .transform-before .transform-list li::before { content: '\00d7'; color: #dc2626; font-weight: 700; font-size: 1.25rem; }
+        .transform-after .transform-list li::before { content: '\2713'; color: #22c55e; font-weight: 700; font-size: 1.25rem; }
+        .transform-arrow { font-size: 3rem; color: var(--accent); }
+
+        /* What's Included */
+        .includes { padding: 6rem 4%; background: var(--bg-dark); }
+        .includes-container { max-width: 1200px; margin: 0 auto; }
+        .includes h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); text-align: center; margin-bottom: 1rem; }
+        .includes-subtitle { text-align: center; font-size: 1.2rem; color: var(--gray-400); margin-bottom: 4rem; }
+        .includes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .include-item {
+            display: flex; align-items: flex-start; gap: 1rem;
+            padding: 1.5rem; background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s ease;
+        }
+        .include-item:hover { border-color: rgba(224, 121, 36, 0.3); background: rgba(255,255,255,0.05); }
+        .include-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.25rem; }
+        .include-text h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .include-text p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.5; }
+
+        /* Enemy Section */
+        .enemy { padding: 5rem 4%; background: var(--bg-darker); }
+        .enemy-container { max-width: 900px; margin: 0 auto; text-align: center; }
+        .enemy h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 2rem; }
+        .enemy-text { font-size: 1.15rem; color: var(--gray-400); margin-bottom: 1.5rem; line-height: 1.7; max-width: 750px; margin-left: auto; margin-right: auto; }
+        .enemy-text strong { color: var(--white); }
+        .enemy-rocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .enemy-rock {
+            padding: 1.5rem; background: rgba(220, 38, 38, 0.06);
+            border: 1px solid rgba(220, 38, 38, 0.15); text-align: left;
+        }
+        .enemy-rock h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #dc2626; margin-bottom: 0.5rem; }
+        .enemy-rock p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.5; }
+
+        /* About */
+        .about { padding: 6rem 4%; background: var(--bg-dark); }
+        .about-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: center; }
+        .about-image { position: relative; }
+        .about-image img {
+            width: 100%; border-radius: 8px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+        .about-image::after {
+            content: ''; position: absolute; bottom: -15px; left: -15px;
+            width: 100%; height: 100%; border: 2px solid var(--accent);
+            border-radius: 8px; z-index: -1; opacity: 0.4;
+        }
+        .about-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 1.5rem; }
+        .about-text { font-size: 1.1rem; color: var(--gray-400); margin-bottom: 1.5rem; line-height: 1.7; }
+        .about-text strong { color: var(--white); }
+        .about-text .accent-bold { color: var(--accent); font-weight: 700; }
+        .about-callout {
+            background: rgba(224, 121, 36, 0.08); border-left: 3px solid var(--accent);
+            padding: 1.5rem; margin-top: 2rem;
+        }
+        .about-callout p { font-size: 1.15rem; color: var(--gray-200); line-height: 1.6; font-style: italic; }
+        .about-callout .accent-bold { color: var(--accent); font-weight: 700; font-style: normal; }
+
+        /* Who This Is For */
+        .who-for { background: var(--white); color: var(--bg-dark); padding: 6rem 4%; }
+        .who-for-container { max-width: 1100px; margin: 0 auto; }
+        .who-for h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); text-align: center; margin-bottom: 3rem; }
+        .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .who-col h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .who-col.yes h3 { color: #22c55e; }
+        .who-col.no h3 { color: #dc2626; }
+        .who-list { list-style: none; }
+        .who-list li { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 1rem; color: var(--gray-800); }
+        .who-col.yes .who-list li::before { content: '\2713'; color: #22c55e; font-weight: 700; font-size: 1.1rem; }
+        .who-col.no .who-list li::before { content: '\2717'; color: #dc2626; font-weight: 700; font-size: 1.1rem; }
+
+        /* Pricing */
+        .pricing { padding: 6rem 4%; background: var(--bg-dark); position: relative; overflow: hidden; }
+        .pricing::before {
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(224, 121, 36, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .pricing-container { max-width: 700px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+        .pricing h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 0.5rem; }
+        .pricing-subtitle { font-size: 1.1rem; color: var(--gray-400); margin-bottom: 3rem; }
+        .pricing-card {
+            background: rgba(255,255,255,0.03); border: 2px solid rgba(224, 121, 36, 0.3);
+            padding: 3rem; text-align: center;
+        }
+        .pricing-badge {
+            display: inline-block; background: var(--accent); color: var(--white);
+            padding: 0.5rem 1.5rem; font-size: 0.85rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem;
+        }
+        .pricing-amount { margin-bottom: 2rem; }
+        .pricing-original { font-size: 2rem; color: var(--gray-600); text-decoration: line-through; margin-bottom: 0.5rem; }
+        .pricing-current { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: var(--accent); line-height: 1; }
+        .pricing-current span { font-size: 2rem; }
+        .pricing-note { font-size: 0.95rem; color: var(--gray-400); margin-top: 0.5rem; }
+        .pricing-features { list-style: none; text-align: left; margin: 2rem 0; }
+        .pricing-features li { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 1rem; color: var(--gray-200); }
+        .pricing-features li svg { color: #22c55e; flex-shrink: 0; width: 20px; height: 20px; }
+        .pricing-cta {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: var(--accent); color: var(--white);
+            padding: 1.25rem 3rem; font-size: 1.1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: none; cursor: pointer; transition: all 0.3s ease;
+            width: 100%; justify-content: center; text-decoration: none; margin-top: 1.5rem;
+        }
+        .pricing-cta:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(224, 121, 36, 0.3); }
+        .pricing-guarantee {
+            margin-top: 2rem; padding: 1.5rem;
+            background: rgba(34, 197, 94, 0.06); border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        .pricing-guarantee h4 { color: #22c55e; font-size: 1rem; margin-bottom: 0.5rem; }
+        .pricing-guarantee p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.5; }
+
+        /* FAQ */
+        .faq { background: var(--white); color: var(--bg-dark); padding: 6rem 4%; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); text-align: center; margin-bottom: 3rem; }
+        .faq-item { border-bottom: 1px solid var(--gray-200); }
+        .faq-question {
+            width: 100%; padding: 1.5rem 0; background: none; border: none;
+            font-size: 1.1rem; font-weight: 600; text-align: left; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            color: var(--bg-dark); font-family: 'DM Sans', sans-serif;
+        }
+        .faq-question::after { content: '+'; font-size: 1.5rem; color: var(--accent); transition: transform 0.3s ease; }
+        .faq-question.active::after { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer-inner { padding: 0 0 1.5rem; font-size: 1rem; color: var(--gray-600); line-height: 1.7; }
+
+        /* Final CTA */
+        .final-cta { padding: 6rem 4%; background: var(--bg-darker); text-align: center; }
+        .final-cta-container { max-width: 800px; margin: 0 auto; }
+        .final-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+        .final-cta p { font-size: 1.2rem; color: var(--gray-400); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .final-cta a {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: var(--accent); color: var(--white);
+            padding: 1.25rem 3rem; font-size: 1.1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: none; cursor: pointer; transition: all 0.3s ease; text-decoration: none;
+        }
+        .final-cta a:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(224, 121, 36, 0.3); }
+
+        /* Future Pace */
+        .future-pace { padding: 5rem 4%; background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .future-pace-container { max-width: 800px; margin: 0 auto; text-align: center; }
+        .future-pace h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 2rem; }
+        .future-pace blockquote {
+            font-size: 1.25rem; color: var(--gray-200); line-height: 1.8;
+            font-style: italic; position: relative; padding: 2rem;
+            background: rgba(224, 121, 36, 0.04); border-left: 4px solid var(--accent);
+            text-align: left;
+        }
+        .future-pace blockquote strong { color: var(--white); font-style: normal; }
+
+        /* Footer */
+        .footer { padding: 2rem 4%; background: var(--bg-darker); border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo { display: flex; flex-direction: column; line-height: 1.1; }
+        .footer-logo .logo-main { font-size: 1.25rem; }
+        .footer-logo .logo-sub { font-size: 0.7rem; }
+        .footer-text { font-size: 0.85rem; color: var(--gray-600); }
+
+        /* Animations */
+        .animate-in { opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s ease forwards; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container { grid-template-columns: 1fr; }
+            .hero-visual { display: none; }
+            .hero-stats { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+            .weeks-grid { grid-template-columns: 1fr; }
+            .transform-grid { grid-template-columns: 1fr; }
+            .transform-arrow { text-align: center; transform: rotate(90deg); }
+            .about-container { grid-template-columns: 1fr; text-align: center; }
+            .about-image { max-width: 300px; margin: 0 auto; }
+            .includes-grid { grid-template-columns: 1fr; }
+            .who-grid { grid-template-columns: 1fr; }
+            .enemy-rocks { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <span class="logo-main">RONNIE MICHAEL</span>
+            <span class="logo-sub">& Company</span>
+        </div>
+        <a href="#pricing" class="nav-cta">Join Waitlist</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-label animate-in">For Solo Coaches &amp; Consultants Ready to Scale Beyond 1:1</div>
+                <h1 class="animate-in delay-1">THE FIRST <span class="accent">$20K</span> COHORT</h1>
+                <p class="hero-subtitle animate-in delay-2">
+                    How Burnt-Out 1:1 Coaches <strong>Build, Fill, and Deliver</strong> a Premium Group Program That Generates $20K &mdash; By Delivering an Outcome to A Problem
+                </p>
+                <div class="hero-stats animate-in delay-3">
+                    <div class="stat">
+                        <div class="stat-number">21</div>
+                        <div class="stat-label">Days</div>
+                    </div>
+                    <div class="hero-deliverables">
+                        <div class="hero-deliverable">
+                            <div class="deliverable-icon">&#10003;</div>
+                            <div class="deliverable-text">
+                                <div class="deliverable-label">PRE-SOLD COHORT</div>
+                                <div class="deliverable-desc">5&ndash;10 founding members locked in</div>
+                            </div>
+                        </div>
+                        <div class="hero-deliverable-plus">+</div>
+                        <div class="hero-deliverable">
+                            <div class="deliverable-icon">&#10140;</div>
+                            <div class="deliverable-text">
+                                <div class="deliverable-label">COMPLETE DELIVERY SYSTEM</div>
+                                <div class="deliverable-desc">Curriculum, tech, templates, AI prompts, &amp; community</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#pricing" class="hero-cta animate-in delay-3">
+                    Join The Waitlist
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+            </div>
+            <div class="hero-visual animate-in delay-2">
+                <div class="hero-card">
+                    <div class="hero-card-label">The Math That Changes Everything</div>
+                    <div class="math-row">
+                        <span class="math-label">Your hourly rate</span>
+                        <span class="math-value" style="color: var(--gray-200);">$200/hr</span>
+                    </div>
+                    <div class="math-row">
+                        <span class="math-label">Max hours/week (before burnout)</span>
+                        <span class="math-value" style="color: var(--gray-200);">25 hrs</span>
+                    </div>
+                    <div class="math-row">
+                        <span class="math-label">Your income ceiling</span>
+                        <span class="math-value old">$5,000/wk</span>
+                    </div>
+                    <div class="math-versus">&darr;&nbsp; VS &nbsp;&darr;</div>
+                    <div class="math-row">
+                        <span class="math-label">One member</span>
+                        <span class="math-value new">$2,000</span>
+                    </div>
+                    <div class="math-row">
+                        <span class="math-label">&times; 10 members = One cohort</span>
+                        <span class="math-value new">$20,000</span>
+                    </div>
+                    <div class="math-verdict">
+                        <p>That&rsquo;s <strong>$20K from one cohort</strong> vs. 100 billable hours at $200/hr. Same expertise. Different vehicle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section (Latent to Extreme Pain) -->
+    <section class="problem">
+        <div class="problem-container">
+            <div class="section-label">The Uncomfortable Truth</div>
+            <h2>You&rsquo;re a Great Coach. <span class="accent">You&rsquo;re Also Trapped.</span></h2>
+
+            <p class="problem-text">
+                You got into coaching because you&rsquo;re genuinely good at transforming people. And you are. <strong>Your clients get results.</strong> They refer friends. Your calendar fills up.
+            </p>
+            <p class="problem-text">
+                And that&rsquo;s exactly the problem.
+            </p>
+            <p class="problem-text">
+                <strong>Your success created your prison.</strong> A full calendar means you&rsquo;ve hit the ceiling. There are no more hours to sell. There&rsquo;s no &ldquo;lever&rdquo; to pull. You&rsquo;re earning well&mdash;but you&rsquo;re earning <em>every dollar</em> with your time.
+            </p>
+
+            <div class="problem-math">
+                <h3>Do The Math. It Doesn&rsquo;t Lie.</h3>
+                <p class="calc">$200/hr &times; 25 billable hours/week = <strong>$5,000/week</strong></p>
+                <p class="calc">$5,000/week &times; 48 working weeks = <strong>$240,000/year</strong></p>
+                <p class="calc">Minus: taxes, software, overhead, no-shows, cancellations&hellip;</p>
+                <p class="result">Real take-home: ~$140K&ndash;$170K. That&rsquo;s your ceiling. Forever.</p>
+            </div>
+
+            <ul class="problem-list">
+                <li>You cancel vacations because &ldquo;rescheduling 12 clients is a nightmare&rdquo;</li>
+                <li>You secretly resent the calendar you built because it owns you</li>
+                <li>You keep Googling &ldquo;how to scale coaching business&rdquo; at 11 PM</li>
+                <li>You watch other coaches launch group programs and wonder &ldquo;how did they figure that out?&rdquo;</li>
+                <li>You&rsquo;ve thought about raising rates&mdash;again&mdash;but you know that just buys another 6 months</li>
+            </ul>
+
+            <div class="problem-highlight">
+                <p>&ldquo;The most dangerous place for a coach is a <strong>full calendar with no leverage.</strong> You&rsquo;re one burnout episode, one health scare, one life event away from zero income. And deep down&mdash;you already know that.&rdquo;</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Throw Rocks at the Enemy -->
+    <section class="enemy">
+        <div class="enemy-container">
+            <div class="section-label" style="background: rgba(220, 38, 38, 0.1); color: #dc2626; border: 1px solid rgba(220, 38, 38, 0.2);">What They Won&rsquo;t Tell You</div>
+            <h2>The Advice You Keep Hearing <span class="accent">Is Keeping You Stuck</span></h2>
+            <p class="enemy-text">
+                Every &ldquo;business coach for coaches&rdquo; says the same three things. And <strong>every single one keeps you on the hamster wheel.</strong>
+            </p>
+            <div class="enemy-rocks">
+                <div class="enemy-rock">
+                    <h4>&ldquo;Just Get More Clients&rdquo;</h4>
+                    <p>More clients = more hours sold = same ceiling, faster burnout. This is the advice of someone who&rsquo;s never hit capacity. You already have.</p>
+                </div>
+                <div class="enemy-rock">
+                    <h4>&ldquo;Raise Your Rates&rdquo;</h4>
+                    <p>From $200 to $300/hr? Congrats&mdash;you bought yourself 6 months before you hit the same wall at a slightly higher number. The model is broken, not the price.</p>
+                </div>
+                <div class="enemy-rock">
+                    <h4>&ldquo;Create a Course&rdquo;</h4>
+                    <p>Spend 3 months building something nobody asked for, launch to crickets, then discount it to $47 on a marketplace next to 10,000 other courses. That&rsquo;s not leverage. That&rsquo;s a graveyard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution/Weeks -->
+    <section class="solution" id="program">
+        <div class="solution-container">
+            <div class="solution-header">
+                <div class="section-label">The 21-Day Blueprint</div>
+                <h2>FROM IDEA TO <span class="accent">PRE-SOLD COHORT</span> IN 3 WEEKS</h2>
+                <p class="solution-subtitle">Each week builds on the last. By Day 21, you have a designed cohort, paying founding members, and a complete delivery system. Not a plan. Not a &ldquo;someday.&rdquo; A business.</p>
+            </div>
+            <div class="weeks-grid">
+                <div class="week-card">
+                    <div class="week-number">01</div>
+                    <div class="week-title">ARCHITECT</div>
+                    <div class="week-desc">Turn your 1:1 expertise into a group cohort that commands $20K+. We&rsquo;ll design your curriculum arc, pricing model, cohort structure, and irresistible offer stack. You&rsquo;ll know exactly what you&rsquo;re selling, to whom, and why they&rsquo;ll pay premium.</div>
+                    <div class="week-deliverable">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        Complete Cohort Blueprint + Pricing Strategy
+                    </div>
+                </div>
+                <div class="week-card">
+                    <div class="week-number">02</div>
+                    <div class="week-title">PRE-SELL</div>
+                    <div class="week-desc">Build your sales page, craft your outreach sequence, and lock in 5&ndash;10 founding members&mdash;before you build a single lesson. This is the Hormozi method: sell first, build second. If nobody buys, you saved months. If they buy, you&rsquo;re funded.</div>
+                    <div class="week-deliverable">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        Sales Page + 5&ndash;10 Founding Members Enrolled
+                    </div>
+                </div>
+                <div class="week-card">
+                    <div class="week-number">03</div>
+                    <div class="week-title">BUILD &amp; LAUNCH</div>
+                    <div class="week-desc">Set up your delivery system: curriculum templates, community platform, tech stack, session structure, and engagement framework. Plus a personalized 1:1 with Ronnie to finalize your launch plan and troubleshoot anything.</div>
+                    <div class="week-deliverable">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        Full Delivery System + Launch-Ready Cohort
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Pacing -->
+    <section class="future-pace">
+        <div class="future-pace-container">
+            <h2>Close Your Eyes. <span class="accent">See Day 22.</span></h2>
+            <blockquote>
+                You open your laptop. <strong>8 founding members</strong> are in your community, excited and committed. They&rsquo;ve already paid. Your first group session is Thursday. You look at your calendar&mdash;there&rsquo;s <strong>white space</strong> where there used to be wall-to-wall 1:1 calls. You&rsquo;re delivering the same transformation you always have, but to 8 people at once instead of 1. Your income didn&rsquo;t just grow. <strong>Your entire business model changed.</strong> And the best part? You can run this again next quarter. And the one after that.
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Transformation -->
+    <section class="transformation">
+        <div class="transformation-container">
+            <h2>THE <span class="accent">STATUS SHIFT</span></h2>
+            <div class="transform-grid">
+                <div class="transform-before">
+                    <div class="transform-label">Day 0 &mdash; Where You Are Now</div>
+                    <ul class="transform-list">
+                        <li>Trading time for money at $150&ndash;$300/hr</li>
+                        <li>Income capped by hours in the day</li>
+                        <li>No leverage&mdash;if you stop, revenue stops</li>
+                        <li>&ldquo;Solo coach&rdquo; identity, limited positioning</li>
+                        <li>Dreaming about group programs but stuck on &ldquo;how&rdquo;</li>
+                        <li>Watching competitors launch cohorts and feeling behind</li>
+                    </ul>
+                </div>
+                <div class="transform-arrow">&rarr;</div>
+                <div class="transform-after">
+                    <div class="transform-label">Day 21 &mdash; Where You&rsquo;ll Be</div>
+                    <ul class="transform-list">
+                        <li>Cohort leader commanding $20K+ per group</li>
+                        <li>Income scales with enrollment, not hours</li>
+                        <li>Recurring revenue model you can run quarterly</li>
+                        <li>Premium authority positioning in your niche</li>
+                        <li>5&ndash;10 founding members already enrolled and paid</li>
+                        <li>Complete delivery system ready to execute</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="includes">
+        <div class="includes-container">
+            <div class="section-label" style="display: block; text-align: center; margin-bottom: 1rem;">Everything You Get</div>
+            <h2>THE COMPLETE <span class="accent">COHORT LAUNCH</span> TOOLKIT</h2>
+            <p class="includes-subtitle">Not theory. Not templates you&rsquo;ll never use. A done-with-you system that ends with paying clients.</p>
+            <div class="includes-grid">
+                <div class="include-item">
+                    <div class="include-icon">&#128736;</div>
+                    <div class="include-text">
+                        <h4>Cohort Architecture Blueprint</h4>
+                        <p>Your complete program design: curriculum arc, session structure, pricing model, and transformation pathway&mdash;built from your existing 1:1 expertise.</p>
+                    </div>
+                </div>
+                <div class="include-item">
+                    <div class="include-icon">&#128176;</div>
+                    <div class="include-text">
+                        <h4>Premium Pricing Strategy</h4>
+                        <p>How to position and price at $20K+ with confidence. Offer stacking, bonus architecture, and the psychology of premium group pricing.</p>
+                    </div>
+                </div>
+                <div class="include-item">
+                    <div class="include-icon">&#128196;</div>
+                    <div class="include-text">
+                        <h4>Done-With-You Sales Page</h4>
+                        <p>We build your cohort sales/registration page together. Not a template&mdash;a live asset you use to enroll founding members during Week 2.</p>
+                    </div>
+                </div>
+                <div class="include-item">
+                    <div class="include-icon">&#128172;</div>
+                    <div class="include-text">
+                        <h4>Pre-Sell Outreach Sequences</h4>
+                        <p>Proven DM scripts, email sequences, and enrollment frameworks. The exact words that turn warm contacts into founding members.</p>
+                    </div>
+                </div>
+                <div class="include-item">
+                    <div class="include-icon">&#127891;</div>
+                    <div class="include-text">
+                        <h4>Curriculum &amp; Delivery Templates</h4>
+                        <p>Session frameworks, engagement mechanics, community setup guides, and the operational backbone so delivery feels effortless.</p>
+                    </div>
+                </div>
+                <div class="include-item">
+                    <div class="include-icon">&#128187;</div>
+                    <div class="include-text">
+                        <h4>Tech Stack Setup</h4>
+                        <p>Exactly which platforms to use (and which to skip). Community tools, payment processing, scheduling&mdash;configured and ready to go.</p>
+                    </div>
+                </div>
+                <div class="include-item">
+                    <div class="include-icon">&#129309;</div>
+                    <div class="include-text">
+                        <h4>90-Min 1:1 Strategy Session</h4>
+                        <p>Week 3: a private session with Ronnie to review your cohort, finalize your launch plan, and troubleshoot anything blocking you.</p>
+                    </div>
+                </div>
+                <div class="include-item">
+                    <div class="include-icon">&#127942;</div>
+                    <div class="include-text">
+                        <h4>$1,000 Launch Competition</h4>
+                        <p>The coach who pre-sells the most founding members wins $1,000. Community-voted. Announced on Day 1. Because stakes create speed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Is For (Identity Activation) -->
+    <section class="who-for">
+        <div class="who-for-container">
+            <h2>IS THIS <span class="accent">YOU?</span></h2>
+            <div class="who-grid">
+                <div class="who-col yes">
+                    <h3>&#10003; This Is Built For You If&hellip;</h3>
+                    <ul class="who-list">
+                        <li>You&rsquo;re a coach or consultant doing 1:1 work and hitting an income ceiling</li>
+                        <li>You have proven expertise&mdash;your clients get real results</li>
+                        <li>You&rsquo;ve thought about group coaching but don&rsquo;t know how to design, price, or sell it</li>
+                        <li>You&rsquo;re making $5K&ndash;$15K/month and know there&rsquo;s a bigger model waiting</li>
+                        <li>You&rsquo;re willing to do the work for 21 days to change your business forever</li>
+                        <li>You have an existing audience or network (even small) you could enroll from</li>
+                    </ul>
+                </div>
+                <div class="who-col no">
+                    <h3>&#10007; This Is NOT For You If&hellip;</h3>
+                    <ul class="who-list">
+                        <li>You&rsquo;re brand new to coaching with no 1:1 experience or proven results</li>
+                        <li>You want a passive income course&mdash;this is a live, high-touch group model</li>
+                        <li>You&rsquo;re looking for &ldquo;done-for-you&rdquo; where someone else does everything</li>
+                        <li>You don&rsquo;t have any audience, network, or existing relationships to sell into</li>
+                        <li>You&rsquo;re not willing to sell before you build (the pre-sell model is non-negotiable)</li>
+                        <li>You want to stay in the 1:1 model forever&mdash;and that&rsquo;s totally fine</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Ronnie (Adventurer Frame + Pit of Darkness) -->
+    <section class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <!-- Replace ronnie-headshot.jpg with your actual headshot file -->
+                <img src="ronnie-headshot.jpg" alt="Ronnie Michael &mdash; Cohort Launch Specialist">
+            </div>
+            <div class="about-content">
+                <div class="section-label">Meet Your Guide</div>
+                <h2>MEET <span class="accent">RONNIE MICHAEL</span></h2>
+                <h3 style="font-family: 'DM Sans', sans-serif; font-size: 1.15rem; color: var(--gray-200); font-weight: 600; margin-bottom: 1.5rem; font-style: italic;">The Guy Who Builds the Machine So You Can Do the Work That Matters</h3>
+                <p class="about-text">
+                    Most &ldquo;coaching coaches&rdquo; teach theory. Ronnie <span class="accent-bold">builds cohort launch systems that generate revenue before the first session starts.</span>
+                </p>
+                <p class="about-text">
+                    After <strong>20 years leading Fortune 500 sales teams</strong> and <strong>selling two startups</strong>, Ronnie saw the same pattern everywhere: brilliant coaches trapped in the 1:1 model, working harder every year for the same income, while their competitors quietly launched group programs and <span class="accent-bold">broke through the ceiling.</span>
+                </p>
+                <p class="about-text">
+                    The difference was never talent. It was <strong>architecture.</strong> The coaches who scaled had a system. The ones who stayed stuck had hope and a Google search.
+                </p>
+                <p class="about-text">
+                    Ronnie bridges that gap. He doesn&rsquo;t teach you how to coach&mdash;you already know that. He shows you how to <span class="accent-bold">package what you know into a $20K+ group offer, sell it before you build it, and deliver it without burning out.</span>
+                </p>
+                <div class="about-callout">
+                    <p>Think of it this way: <span class="accent-bold">You wouldn&rsquo;t hire an architect who&rsquo;s never built a building.</span> Why learn cohort design from someone who&rsquo;s never launched one?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing (Objection Inversion) -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-container">
+            <div class="section-label" style="display: inline-block; margin-bottom: 1rem;">Limited to 20 Coaches</div>
+            <h2>THE <span class="accent">INVESTMENT</span></h2>
+            <p class="pricing-subtitle">One cohort launch pays for this 20x over. The math doesn&rsquo;t lie.</p>
+
+            <div class="pricing-card">
+                <div class="pricing-badge">&#9733; First 5 Spots &mdash; Early Bird</div>
+                <div class="pricing-amount">
+                    <div class="pricing-original">$1,497</div>
+                    <div class="pricing-current"><span>$</span>997</div>
+                    <div class="pricing-note">Save $500 &mdash; Only for the first 5 coaches who commit</div>
+                </div>
+                <ul class="pricing-features">
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Complete Cohort Architecture Blueprint</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Premium Pricing &amp; Offer Stack Strategy</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Done-With-You Sales Page</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Pre-Sell Outreach Scripts &amp; Sequences</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Curriculum &amp; Delivery Templates</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Tech Stack Setup &amp; Configuration</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>90-Minute 1:1 Strategy Session with Ronnie</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>$1,000 Launch Competition Entry</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#22c55e"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Private Community Access (Lifetime)</li>
+                </ul>
+                <a href="#" class="pricing-cta">Join The Waitlist</a>
+
+                <div class="pricing-guarantee">
+                    <h4>&#128170; The &ldquo;Pre-Sell or It&rsquo;s Free&rdquo; Guarantee</h4>
+                    <p><strong>Complete all 3 weeks and do the work.</strong> If you don&rsquo;t have at least 3 founding members pre-sold by Day 21, I&rsquo;ll work with you 1-on-1 until you do&mdash;or refund every dollar. I&rsquo;m betting on your expertise. The risk is mine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (Objection Inversion) -->
+    <section class="faq">
+        <div class="faq-container">
+            <h2>QUESTIONS <span class="accent">ANSWERED</span></h2>
+
+            <div class="faq-item">
+                <button class="faq-question">&ldquo;I can&rsquo;t afford $997 right now.&rdquo;</button>
+                <div class="faq-answer"><div class="faq-answer-inner">That&rsquo;s actually the problem this solves. You can&rsquo;t afford it because your income is capped at 1:1 rates. One cohort at $2K/member with 10 members = $20,000. That&rsquo;s a 20x return on a $997 investment. The question isn&rsquo;t whether you can afford to join. It&rsquo;s whether you can afford another year at the same ceiling.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">&ldquo;What if nobody buys my cohort?&rdquo;</button>
+                <div class="faq-answer"><div class="faq-answer-inner">That&rsquo;s literally what Week 2 is designed to prevent. You pre-sell before you build anything. If nobody buys, you haven&rsquo;t wasted months building a program nobody wants&mdash;you&rsquo;ve spent a few days testing the market. That&rsquo;s priceless intel. But in practice? Coaches with proven 1:1 results who follow the pre-sell framework consistently lock in 5&ndash;10 founding members. Your existing relationships are more valuable than you think.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">&ldquo;I&rsquo;m not sure I have enough expertise for a $20K program.&rdquo;</button>
+                <div class="faq-answer"><div class="faq-answer-inner">If your 1:1 clients pay you $200/hr and keep coming back, you have enough expertise. The issue isn&rsquo;t knowledge&mdash;it&rsquo;s packaging. A $20K cohort doesn&rsquo;t require 10x more expertise than a $1K offering. It requires better architecture, positioning, and delivery design. That&rsquo;s what we build together in Week 1.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">&ldquo;How is this different from every other &lsquo;launch your course&rsquo; program?&rdquo;</button>
+                <div class="faq-answer"><div class="faq-answer-inner">This isn&rsquo;t a course. Courses are passive, low-ticket, and die on marketplaces. This is a high-touch, premium group coaching cohort&mdash;the most profitable model in coaching right now. You&rsquo;re not creating content people watch alone. You&rsquo;re leading a live transformation. And you&rsquo;re not &ldquo;learning how&rdquo;&mdash;you&rsquo;re building and selling it during the 21 days.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">&ldquo;I only have a small audience. Can I still pre-sell?&rdquo;</button>
+                <div class="faq-answer"><div class="faq-answer-inner">You need 5&ndash;10 founding members. Not 5,000 followers. Most coaches pre-sell through direct outreach to past clients, warm contacts, and referral networks&mdash;not social media blasts. If you have 50 people who know your work, you have enough. We give you the exact scripts and sequences in Week 2.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">&ldquo;What&rsquo;s the time commitment during the 21 days?&rdquo;</button>
+                <div class="faq-answer"><div class="faq-answer-inner">Weeks 1&ndash;2: One 90-minute group session + one 60-minute Q&amp;A per week, plus 3&ndash;5 hours of implementation work. Week 3: A 90-minute private 1:1 session. Total: about 7.5 hours of live time plus your implementation. You can keep your current 1:1 clients running. This builds alongside your existing business, not instead of it.</div></div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">&ldquo;What if I&rsquo;m not ready?&rdquo;</button>
+                <div class="faq-answer"><div class="faq-answer-inner">Nobody who launched something great felt &ldquo;ready.&rdquo; If you have paying 1:1 clients who get results, you&rsquo;re ready. The program gives you the structure, templates, and accountability to move fast. &ldquo;Not ready&rdquo; usually means &ldquo;not sure how.&rdquo; That&rsquo;s exactly what the 21 days solve.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="final-cta-container">
+            <h2>STOP TRADING <span class="accent">TIME</span> FOR MONEY.<br>START BUILDING <span class="accent">LEVERAGE.</span></h2>
+            <p>21 days. One cohort designed. Founding members pre-sold. A business model that finally scales. The only question is whether you&rsquo;re going to keep Googling or actually build it.</p>
+            <a href="#pricing">
+                Join The Waitlist
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 20px; height: 20px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <span class="logo-main">RONNIE MICHAEL</span>
+            <span class="logo-sub">& Company</span>
+        </div>
+        <div class="footer-text">&copy; 2026 Ronnie Michael & Company. All rights reserved.</div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                const isOpen = btn.classList.contains('active');
+                document.querySelectorAll('.faq-question').forEach(b => { b.classList.remove('active'); b.nextElementSibling.style.maxHeight = null; });
+                if (!isOpen) { btn.classList.add('active'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+            });
+        });
+    </script>
+</body>
+</html>
